@@ -1,13 +1,13 @@
 package com.github.fujianlian.klinechart;
 
 import android.content.Context;
-import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.widget.OverScroller;
 import android.widget.RelativeLayout;
+import androidx.core.view.GestureDetectorCompat;
 
 /**
  * 可以滑动和放大的view

@@ -3,14 +3,14 @@ package com.github.fujianlian.klinechart;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.core.content.ContextCompat;
 import com.github.fujianlian.klinechart.draw.KDJDraw;
 import com.github.fujianlian.klinechart.draw.MACDDraw;
 import com.github.fujianlian.klinechart.draw.MainDraw;
