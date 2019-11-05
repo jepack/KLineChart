@@ -302,10 +302,10 @@ public class DataHelper {
     }
 
     public static String getPlainNumText(float num){
-        return BigDecimal.valueOf(num).setScale(9, BigDecimal.ROUND_HALF_UP).multiply(BigDecimal.valueOf(100).stripTrailingZeros()).toPlainString();
+        return BigDecimal.valueOf(num).multiply(BigDecimal.valueOf(100)).setScale(9, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toPlainString();
     }
 
     public static String getPlainNumText(double num){
-        return BigDecimal.valueOf(num).setScale(9, BigDecimal.ROUND_HALF_UP).multiply(BigDecimal.valueOf(100).stripTrailingZeros()).toPlainString();
+        return BigDecimal.valueOf(num).multiply(BigDecimal.valueOf(100)).setScale(9, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toPlainString();
     }
 }
