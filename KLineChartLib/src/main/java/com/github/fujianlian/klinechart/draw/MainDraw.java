@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.R;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
 import com.github.fujianlian.klinechart.KLineChartView;
@@ -119,12 +120,12 @@ public class MainDraw implements IChartDraw<ICandle> {
         if (isLine) {
             if (status == Status.MA) {
                 if (point.getMA60Price() != 0) {
-                    String text = "MA60:" + view.formatValue(point.getMA60Price()) + "  ";
+                    String text = "MA60:" + DataHelper.getPlainNumText(point.getMA60Price()) + "  ";
                     canvas.drawText(text, x, y, ma10Paint);
                 }
             } else if (status == Status.BOLL) {
                 if (point.getMb() != 0) {
-                    String text = "BOLL:" + view.formatValue(point.getMb()) + "  ";
+                    String text = "BOLL:" + DataHelper.getPlainNumText(point.getMb()) + "  ";
                     canvas.drawText(text, x, y, ma10Paint);
                 }
             }
@@ -132,28 +133,28 @@ public class MainDraw implements IChartDraw<ICandle> {
             if (status == Status.MA) {
                 String text;
                 if (point.getMA5Price() != 0) {
-                    text = "MA5:" + view.formatValue(point.getMA5Price()) + "  ";
+                    text = "MA5:" + DataHelper.getPlainNumText(point.getMA5Price()) + "  ";
                     canvas.drawText(text, x, y, ma5Paint);
                     x += ma5Paint.measureText(text);
                 }
                 if (point.getMA10Price() != 0) {
-                    text = "MA10:" + view.formatValue(point.getMA10Price()) + "  ";
+                    text = "MA10:" + DataHelper.getPlainNumText(point.getMA10Price()) + "  ";
                     canvas.drawText(text, x, y, ma10Paint);
                     x += ma10Paint.measureText(text);
                 }
                 if (point.getMA20Price() != 0) {
-                    text = "MA30:" + view.formatValue(point.getMA30Price());
+                    text = "MA30:" + DataHelper.getPlainNumText(point.getMA30Price());
                     canvas.drawText(text, x, y, ma30Paint);
                 }
             } else if (status == Status.BOLL) {
                 if (point.getMb() != 0) {
-                    String text = "BOLL:" + view.formatValue(point.getMb()) + "  ";
+                    String text = "BOLL:" +DataHelper.getPlainNumText(point.getMb()) + "  ";
                     canvas.drawText(text, x, y, ma10Paint);
                     x += ma5Paint.measureText(text);
-                    text = "UB:" + view.formatValue(point.getUp()) + "  ";
+                    text = "UB:" + DataHelper.getPlainNumText(point.getUp()) + "  ";
                     canvas.drawText(text, x, y, ma5Paint);
                     x += ma10Paint.measureText(text);
-                    text = "LB:" + view.formatValue(point.getDn());
+                    text = "LB:" + DataHelper.getPlainNumText(point.getDn());
                     canvas.drawText(text, x, y, ma30Paint);
                 }
             }

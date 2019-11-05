@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.R;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
 import com.github.fujianlian.klinechart.base.IChartDraw;
@@ -66,13 +67,13 @@ public class VolumeDraw implements IChartDraw<IVolume> {
     public void drawText(
             @NonNull Canvas canvas, @NonNull BaseKLineChartView view, int position, float x, float y) {
         IVolume point = (IVolume) view.getItem(position);
-        String text = "VOL:" + getValueFormatter().format(point.getVolume()) + "  ";
+        String text = "VOL:" + DataHelper.getPlainNumText(point.getVolume()) + "  ";
         canvas.drawText(text, x, y, view.getTextPaint());
         x += view.getTextPaint().measureText(text);
-        text = "MA5:" + getValueFormatter().format(point.getMA5Volume()) + "  ";
+        text = "MA5:" + DataHelper.getPlainNumText(point.getMA5Volume()) + "  ";
         canvas.drawText(text, x, y, ma5Paint);
         x += ma5Paint.measureText(text);
-        text = "MA10:" + getValueFormatter().format(point.getMA10Volume());
+        text = "MA10:" + DataHelper.getPlainNumText(point.getMA10Volume());
         canvas.drawText(text, x, y, ma10Paint);
     }
 

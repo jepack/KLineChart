@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.base.IChartDraw;
 import com.github.fujianlian.klinechart.base.IValueFormatter;
 import com.github.fujianlian.klinechart.entity.IKDJ;
@@ -45,14 +46,14 @@ public class KDJDraw implements IChartDraw<IKDJ> {
             String text = "KDJ(14,1,3)  ";
             canvas.drawText(text, x, y, view.getTextPaint());
             x += view.getTextPaint().measureText(text);
-            text = "K:" + view.formatValue(point.getK()) + " ";
+            text = "K:" + DataHelper.getPlainNumText(point.getK()) + " ";
             canvas.drawText(text, x, y, mKPaint);
             x += mKPaint.measureText(text);
             if (point.getD() != 0) {
-                text = "D:" + view.formatValue(point.getD()) + " ";
+                text = "D:" + DataHelper.getPlainNumText(point.getD()) + " ";
                 canvas.drawText(text, x, y, mDPaint);
                 x += mDPaint.measureText(text);
-                text = "J:" + view.formatValue(point.getJ()) + " ";
+                text = "J:" + DataHelper.getPlainNumText(point.getJ()) + " ";
                 canvas.drawText(text, x, y, mJPaint);
             }
         }

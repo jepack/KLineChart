@@ -1,5 +1,6 @@
 package com.github.fujianlian.klinechart;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -298,5 +299,13 @@ public class DataHelper {
                 entry.MA10Volume = 0f;
             }
         }
+    }
+
+    public static String getPlainNumText(float num){
+        return BigDecimal.valueOf(num).setScale(9, BigDecimal.ROUND_HALF_UP).multiply(BigDecimal.valueOf(100).stripTrailingZeros()).toPlainString();
+    }
+
+    public static String getPlainNumText(double num){
+        return BigDecimal.valueOf(num).setScale(9, BigDecimal.ROUND_HALF_UP).multiply(BigDecimal.valueOf(100).stripTrailingZeros()).toPlainString();
     }
 }

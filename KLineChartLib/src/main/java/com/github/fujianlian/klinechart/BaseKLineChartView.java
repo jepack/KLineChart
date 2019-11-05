@@ -382,16 +382,16 @@ public abstract class BaseKLineChartView extends ScrollAndScaleView {
         }
         //--------------画中间子图的值-------------
         if (mVolDraw != null) {
-            canvas.drawText(mVolDraw.getValueFormatter().format(mVolMaxValue),
+            canvas.drawText(DataHelper.getPlainNumText(mVolMaxValue),
                     mWidth - calculateWidth(formatValue(mVolMaxValue)), mMainRect.bottom + baseLine, mTextPaint);
-            /*canvas.drawText(mVolDraw.getValueFormatter().format(mVolMinValue),
+            /*canvas.drawText(DataHelper.getPlainNumText(mVolMinValue),
                     mWidth - calculateWidth(formatValue(mVolMinValue)), mVolRect.bottom, mTextPaint);*/
         }
         //--------------画下方子图的值-------------
         if (mChildDraw != null) {
-            canvas.drawText(mChildDraw.getValueFormatter().format(mChildMaxValue),
+            canvas.drawText(DataHelper.getPlainNumText(mChildMaxValue),
                     mWidth - calculateWidth(formatValue(mChildMaxValue)), mVolRect.bottom + baseLine, mTextPaint);
-            /*canvas.drawText(mChildDraw.getValueFormatter().format(mChildMinValue),
+            /*canvas.drawText(DataHelper.getPlainNumText(mChildMinValue),
                     mWidth - calculateWidth(formatValue(mChildMinValue)), mChildRect.bottom, mTextPaint);*/
         }
         //--------------画时间---------------------
@@ -497,7 +497,7 @@ public abstract class BaseKLineChartView extends ScrollAndScaleView {
             //绘制最大值和最小值
             float x = translateXtoX(getX(mMainMinIndex));
             float y = getMainY(mMainLowMinValue);
-            String LowString = "── " + Float.toString(mMainLowMinValue);
+            String LowString = "── " + DataHelper.getPlainNumText(mMainLowMinValue);
             //计算显示位置
             //计算文本宽度
             int lowStringWidth = calculateMaxMin(LowString).width();
@@ -507,14 +507,14 @@ public abstract class BaseKLineChartView extends ScrollAndScaleView {
                 canvas.drawText(LowString, x, y + lowStringHeight / 2, mMaxMinPaint);
             } else {
                 //画左边
-                LowString = Float.toString(mMainLowMinValue) + " ──";
+                LowString = DataHelper.getPlainNumText(mMainLowMinValue) + " ──";
                 canvas.drawText(LowString, x - lowStringWidth, y + lowStringHeight / 2, mMaxMinPaint);
             }
 
             x = translateXtoX(getX(mMainMaxIndex));
             y = getMainY(mMainHighMaxValue);
 
-            String highString = "── " + Float.toString(mMainHighMaxValue);
+            String highString = "── " + DataHelper.getPlainNumText(mMainHighMaxValue);
             int highStringWidth = calculateMaxMin(highString).width();
             int highStringHeight = calculateMaxMin(highString).height();
             if (x < getWidth() / 2) {
@@ -522,7 +522,7 @@ public abstract class BaseKLineChartView extends ScrollAndScaleView {
                 canvas.drawText(highString, x, y + highStringHeight / 2, mMaxMinPaint);
             } else {
                 //画左边
-                highString = Float.toString(mMainHighMaxValue) + " ──";
+                highString = DataHelper.getPlainNumText(mMainHighMaxValue) + " ──";
                 canvas.drawText(highString, x - highStringWidth, y + highStringHeight / 2, mMaxMinPaint);
             }
 
@@ -569,10 +569,10 @@ public abstract class BaseKLineChartView extends ScrollAndScaleView {
      * 格式化值
      */
     public String formatValue(float value) {
-        if (getValueFormatter() == null) {
-            setValueFormatter(new ValueFormatter());
-        }
-        return getValueFormatter().format(value);
+//        if (getValueFormatter() == null) {
+//            setValueFormatter(new ValueFormatter());
+//        }
+        return DataHelper.getPlainNumText(value);
     }
 
     /**

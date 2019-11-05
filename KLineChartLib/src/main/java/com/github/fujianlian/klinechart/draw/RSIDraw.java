@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.base.IChartDraw;
 import com.github.fujianlian.klinechart.base.IValueFormatter;
 import com.github.fujianlian.klinechart.entity.IRSI;
@@ -39,7 +40,7 @@ public class RSIDraw implements IChartDraw<IRSI> {
             String text = "RSI(14)  ";
             canvas.drawText(text, x, y, view.getTextPaint());
             x += view.getTextPaint().measureText(text);
-            text = view.formatValue(point.getRsi());
+            text = DataHelper.getPlainNumText(point.getRsi());
             canvas.drawText(text, x, y, mRSI1Paint);
         }
     }

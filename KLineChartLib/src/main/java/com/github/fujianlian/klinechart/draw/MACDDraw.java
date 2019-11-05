@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.R;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
 import com.github.fujianlian.klinechart.base.IChartDraw;
@@ -50,13 +51,13 @@ public class MACDDraw implements IChartDraw<IMACD> {
         String text = "MACD(12,26,9)  ";
         canvas.drawText(text, x, y, view.getTextPaint());
         x += view.getTextPaint().measureText(text);
-        text = "MACD:" + view.formatValue(point.getMacd()) + "  ";
+        text = "MACD:" + DataHelper.getPlainNumText(point.getMacd()) + "  ";
         canvas.drawText(text, x, y, mMACDPaint);
         x += mMACDPaint.measureText(text);
-        text = "DIF:" + view.formatValue(point.getDif()) + "  ";
+        text = "DIF:" + DataHelper.getPlainNumText(point.getDif()) + "  ";
         canvas.drawText(text, x, y, mDEAPaint);
         x += mDIFPaint.measureText(text);
-        text = "DEA:" + view.formatValue(point.getDea());
+        text = "DEA:" + DataHelper.getPlainNumText(point.getDea());
         canvas.drawText(text, x, y, mDIFPaint);
     }
 

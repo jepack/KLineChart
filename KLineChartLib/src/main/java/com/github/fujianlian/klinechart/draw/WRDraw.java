@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.github.fujianlian.klinechart.BaseKLineChartView;
+import com.github.fujianlian.klinechart.DataHelper;
 import com.github.fujianlian.klinechart.base.IChartDraw;
 import com.github.fujianlian.klinechart.base.IValueFormatter;
 import com.github.fujianlian.klinechart.entity.IWR;
@@ -36,7 +37,7 @@ public class WRDraw implements IChartDraw<IWR> {
             String text = "WR(14):";
             canvas.drawText(text, x, y, view.getTextPaint());
             x += view.getTextPaint().measureText(text);
-            text = view.formatValue(point.getR()) + " ";
+            text = DataHelper.getPlainNumText(point.getR()) + " ";
             canvas.drawText(text, x, y, mRPaint);
         }
     }
